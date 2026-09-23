@@ -1,0 +1,263 @@
+/* =========================================================
+   CATÁLOGO — estilos exclusivos da página de catálogo
+========================================================= */
+
+/* ---------------------------------------------------------
+   CABEÇALHO DA PÁGINA
+--------------------------------------------------------- */
+.catalog-head {
+  padding: var(--space-xl) 0 var(--space-lg);
+  border-bottom: 1px solid var(--border);
+}
+
+.breadcrumb {
+  display: flex;
+  gap: var(--space-xs);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-md);
+}
+.breadcrumb a:hover { color: var(--brand); }
+.breadcrumb span { color: var(--text-dim); }
+
+.catalog-head__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.catalog-head__title {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  text-transform: uppercase;
+}
+
+.catalog-head__count {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.filters-toggle { display: none; }
+
+/* ---------------------------------------------------------
+   GRID PRINCIPAL (sidebar + conteúdo)
+--------------------------------------------------------- */
+.catalog {
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+.catalog__grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* ---------------------------------------------------------
+   FILTROS (sidebar)
+--------------------------------------------------------- */
+.filters {
+  position: sticky;
+  top: calc(var(--header-h) + 20px);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-height: calc(100vh - var(--header-h) - 40px);
+  overflow-y: auto;
+}
+
+.filters__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filters__title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filters__close {
+  display: none;
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+.filters__close:hover { color: var(--danger); }
+
+/* Grupo de filtro */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+.filter-group:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+.filter-group__title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+/* Checkbox/radio estilizado */
+.filter-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 4px 0;
+  color: var(--text);
+  transition: color var(--t-fast);
+}
+.filter-check:hover { color: var(--brand); }
+.filter-check input { accent-color: var(--brand); width: 16px; height: 16px; cursor: pointer; }
+
+/* Chips de tamanho */
+.filter-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.chip {
+  display: inline-flex;
+  cursor: pointer;
+}
+.chip input { display: none; }
+.chip span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: transparent;
+  transition: all var(--t-fast);
+}
+.chip:hover span {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+.chip input:checked + span {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #000;
+  font-weight: 700;
+}
+
+/* Faixa de preço */
+.filter-price {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+.filter-price input[type="range"] {
+  width: 100%;
+  accent-color: var(--brand);
+  cursor: pointer;
+}
+.filter-price__labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------
+   CONTEÚDO (toolbar + grid)
+--------------------------------------------------------- */
+.catalog__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.catalog__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-sm);
+}
+.catalog__toolbar-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.catalog__sort {
+  max-width: 200px;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+}
+
+/* Estado vazio */
+.catalog__empty {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVO
+--------------------------------------------------------- */
+@media (max-width: 900px) {
+  .catalog__grid { grid-template-columns: 1fr; }
+
+  .filters-toggle { display: inline-flex; }
+
+  /* Sidebar vira gaveta lateral */
+  .filters {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: min(340px, 90vw);
+    max-height: 100vh;
+    border-radius: 0;
+    border-right: 1px solid var(--border);
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    z-index: var(--z-drawer);
+    transform: translateX(-100%);
+    transition: transform 300ms cubic-bezier(.4,0,.2,1);
+  }
+  .filters.is-open { transform: translateX(0); }
+
+  .filters__close { display: inline-flex; }
+
+  .filters-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: calc(var(--z-drawer) - 1);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--t-base);
+  }
+  .filters-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

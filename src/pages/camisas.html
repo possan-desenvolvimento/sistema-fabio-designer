@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catálogo | FabioDesigner</title>
-  <meta name="description" content="Confira todo o catálogo FabioDesigner: camisas, uniformes, regatas e moletons." />
+  <title>Camisas | FabioDesigner</title>
+  <meta name="description"
+    content="Camisas básicas, estampadas e oversized FabioDesigner. Qualidade premium, entrega nacional." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,7 +16,7 @@
 
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/components.css" />
-  <link rel="stylesheet" href="../css/catalog.css" />
+  <link rel="stylesheet" href="../css/camisas.css" />
 </head>
 
 <body>
@@ -75,77 +76,56 @@
   </header>
 
   <!-- ============================================
-       BREADCRUMB + CABEÇALHO
+       BANNER DE CATEGORIA
   ============================================= -->
-  <section class="catalog-head">
-    <div class="container">
+  <section class="cat-banner">
+    <div class="cat-banner__overlay"></div>
+    <div class="container cat-banner__content">
       <nav class="breadcrumb" aria-label="Você está em">
         <a href="index.html">Início</a>
         <span>/</span>
-        <span>Catálogo</span>
+        <a href="catalog.html">Catálogo</a>
+        <span>/</span>
+        <span>Camisas</span>
       </nav>
 
-      <div class="catalog-head__row">
-        <div>
-          <h1 class="catalog-head__title" id="catalog-title">Catálogo</h1>
-          <p class="catalog-head__count"><span id="product-count">0</span> produtos encontrados</p>
-        </div>
+      <h1 class="cat-banner__title">Camisas</h1>
+      <p class="cat-banner__text">
+        Básicas, estampadas e oversized. Encontre o modelo perfeito pro seu estilo.
+      </p>
+    </div>
+  </section>
 
-        <button class="btn btn--outline filters-toggle" id="filters-toggle">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 6h16M7 12h10M10 18h4" />
-          </svg>
-          Filtros
-        </button>
-      </div>
+  <!-- ============================================
+       SUB-CATEGORIAS (chips)
+  ============================================= -->
+  <section class="subcats">
+    <div class="container subcats__row">
+      <button class="subcat-chip is-active" data-subcat="">Todas</button>
+      <button class="subcat-chip" data-subcat="basica">Básicas</button>
+      <button class="subcat-chip" data-subcat="estampada">Estampadas</button>
+      <button class="subcat-chip" data-subcat="oversized">Oversized</button>
     </div>
   </section>
 
   <!-- ============================================
        CONTEÚDO — FILTROS + GRID
   ============================================= -->
-  <section class="catalog">
-    <div class="container catalog__grid">
+  <section class="cat-content">
+    <div class="container cat-content__grid">
 
-      <!-- FILTROS (sidebar) -->
-      <aside class="filters" id="filters">
-        <div class="filters__head">
-          <h2 class="filters__title">Filtrar</h2>
-          <button class="filters__close" id="filters-close" aria-label="Fechar">✕</button>
+      <!-- FILTROS -->
+      <aside class="cat-filters" id="filters">
+        <div class="cat-filters__head">
+          <h2 class="cat-filters__title">Filtrar</h2>
+          <button class="cat-filters__close" id="filters-close" aria-label="Fechar">✕</button>
         </div>
 
-        <!-- Busca -->
         <div class="filter-group">
           <h3 class="filter-group__title">Buscar</h3>
-          <input type="search" class="form-input" id="filter-search" placeholder="Nome do produto..." />
+          <input type="search" class="form-input" id="filter-search" placeholder="Nome da camisa..." />
         </div>
 
-        <!-- Categoria -->
-        <div class="filter-group">
-          <h3 class="filter-group__title">Categoria</h3>
-          <label class="filter-check">
-            <input type="radio" name="category" value="" checked />
-            <span>Todas</span>
-          </label>
-          <label class="filter-check">
-            <input type="radio" name="category" value="camisas" />
-            <span>Camisas</span>
-          </label>
-          <label class="filter-check">
-            <input type="radio" name="category" value="uniformes" />
-            <span>Uniformes Infantis</span>
-          </label>
-          <label class="filter-check">
-            <input type="radio" name="category" value="regatas" />
-            <span>Regatas</span>
-          </label>
-          <label class="filter-check">
-            <input type="radio" name="category" value="moletons" />
-            <span>Moletons</span>
-          </label>
-        </div>
-
-        <!-- Tamanho -->
         <div class="filter-group">
           <h3 class="filter-group__title">Tamanho</h3>
           <div class="filter-sizes">
@@ -157,14 +137,39 @@
           </div>
         </div>
 
-        <!-- Faixa de preço -->
+        <div class="filter-group">
+          <h3 class="filter-group__title">Cor</h3>
+          <div class="filter-colors">
+            <label class="color-dot" data-color="preto" title="Preto">
+              <input type="checkbox" name="color" value="preto" />
+              <span style="background:#111"></span>
+            </label>
+            <label class="color-dot" data-color="branco" title="Branco">
+              <input type="checkbox" name="color" value="branco" />
+              <span style="background:#f5f5f5"></span>
+            </label>
+            <label class="color-dot" data-color="verde" title="Verde">
+              <input type="checkbox" name="color" value="verde" />
+              <span style="background:#00c853"></span>
+            </label>
+            <label class="color-dot" data-color="cinza" title="Cinza">
+              <input type="checkbox" name="color" value="cinza" />
+              <span style="background:#888"></span>
+            </label>
+            <label class="color-dot" data-color="azul" title="Azul">
+              <input type="checkbox" name="color" value="azul" />
+              <span style="background:#2563eb"></span>
+            </label>
+          </div>
+        </div>
+
         <div class="filter-group">
           <h3 class="filter-group__title">Preço</h3>
           <div class="filter-price">
-            <input type="range" id="price-range" min="0" max="500" step="10" value="500" />
+            <input type="range" id="price-range" min="0" max="300" step="10" value="300" />
             <div class="filter-price__labels">
               <span>R$ 0</span>
-              <span id="price-value">R$ 500</span>
+              <span id="price-value">R$ 300</span>
             </div>
           </div>
         </div>
@@ -174,10 +179,10 @@
       </aside>
 
       <!-- GRID -->
-      <div class="catalog__content">
-        <div class="catalog__toolbar">
-          <span class="catalog__toolbar-label">Ordenar por:</span>
-          <select class="form-select catalog__sort" id="sort-select">
+      <div class="cat-list">
+        <div class="cat-list__toolbar">
+          <span class="cat-list__count"><strong id="product-count">0</strong> produtos</span>
+          <select class="form-select cat-list__sort" id="sort-select">
             <option value="relevance">Relevância</option>
             <option value="price-asc">Menor preço</option>
             <option value="price-desc">Maior preço</option>
@@ -187,15 +192,22 @@
 
         <div class="product-grid" id="product-grid"></div>
 
-        <div class="catalog__empty" id="catalog-empty" hidden>
-          <p>😕 Nenhum produto encontrado com esses filtros.</p>
+        <div class="cat-empty" id="cat-empty" hidden>
+          <p>😕 Nenhuma camisa encontrada com esses filtros.</p>
           <button class="btn btn--outline" id="empty-reset">Limpar filtros</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Filtros mobile (backdrop) -->
+  <!-- Filtros mobile -->
+  <button class="filters-toggle-fab" id="filters-toggle" aria-label="Abrir filtros">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M4 6h16M7 12h10M10 18h4" />
+    </svg>
+    Filtros
+  </button>
+
   <div class="filters-backdrop" id="filters-backdrop"></div>
 
   <!-- ============================================
@@ -254,12 +266,11 @@
     </div>
   </aside>
 
-  <!-- Toast -->
   <div class="toast-container" id="toast-container"></div>
 
   <!-- JS -->
   <script type="module" src="../js/app.js"></script>
-  <script type="module" src="../js/catalog.js"></script>
+  <script type="module" src="../js/camisas.js"></script>
 </body>
 
 </html>

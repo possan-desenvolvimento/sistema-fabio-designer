@@ -1,0 +1,339 @@
+/* =========================================================
+   UNIFORMES — estilos exclusivos da página de uniformes
+   (Baseado no camisas.css, com identidade visual própria)
+========================================================= */
+
+/* ---------------------------------------------------------
+   BANNER
+--------------------------------------------------------- */
+.cat-banner--uniformes {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(10,10,10,0.95) 100%),
+    url('../assets/images/banner-uniformes.jpg') center/cover no-repeat,
+    linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.cat-banner {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-2xl) 0 var(--space-xl);
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(10,10,10,0.95) 100%);
+  background-size: cover;
+}
+
+.cat-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--bg) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cat-banner__content { position: relative; z-index: 2; }
+
+.cat-banner__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-transform: uppercase;
+  margin: var(--space-sm) 0 var(--space-xs);
+}
+
+.cat-banner__text {
+  font-size: 1rem;
+  color: #dcdcdc;
+  max-width: 520px;
+}
+
+/* ---------------------------------------------------------
+   SUB-CATEGORIAS
+--------------------------------------------------------- */
+.subcats {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: var(--header-h);
+  z-index: 100;
+  padding: var(--space-md) 0;
+}
+
+.subcats__row {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.subcats__row::-webkit-scrollbar { display: none; }
+
+.subcat-chip {
+  flex-shrink: 0;
+  padding: 8px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: transparent;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all var(--t-fast);
+  cursor: pointer;
+}
+.subcat-chip:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+.subcat-chip.is-active {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #000;
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------
+   GRID PRINCIPAL
+--------------------------------------------------------- */
+.cat-content { padding: var(--space-xl) 0 var(--space-2xl); }
+
+.cat-content__grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* ---------------------------------------------------------
+   FILTROS
+--------------------------------------------------------- */
+.cat-filters {
+  position: sticky;
+  top: calc(var(--header-h) + 60px);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-height: calc(100vh - var(--header-h) - 80px);
+  overflow-y: auto;
+}
+
+.cat-filters__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cat-filters__title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cat-filters__close {
+  display: none;
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+.cat-filters__close:hover { color: var(--danger); }
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+.filter-group:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+.filter-group__title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.filter-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.chip { display: inline-flex; cursor: pointer; }
+.chip input { display: none; }
+.chip span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: all var(--t-fast);
+}
+.chip:hover span { border-color: var(--brand); color: var(--brand); }
+.chip input:checked + span {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #000;
+  font-weight: 700;
+}
+
+.filter-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: 4px;
+}
+.color-dot { display: inline-flex; cursor: pointer; }
+.color-dot input { display: none; }
+.color-dot span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 1px var(--border);
+  transition: all var(--t-fast);
+}
+.color-dot:hover span { transform: scale(1.1); }
+.color-dot input:checked + span {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 2px var(--brand), 0 0 0 1px var(--border);
+  transform: scale(1.1);
+}
+
+.filter-price {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+.filter-price input[type="range"] {
+  width: 100%;
+  accent-color: var(--brand);
+  cursor: pointer;
+}
+.filter-price__labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------
+   LISTA
+--------------------------------------------------------- */
+.cat-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.cat-list__toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border);
+}
+
+.cat-list__count {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.cat-list__count strong {
+  color: var(--brand);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  margin-right: 4px;
+}
+
+.cat-list__sort {
+  max-width: 200px;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+}
+
+.cat-empty {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------
+   BOTÃO FLUTUANTE
+--------------------------------------------------------- */
+.filters-toggle-fab {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 900;
+  padding: 12px 20px;
+  background: var(--brand);
+  color: #000;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  gap: 8px;
+  align-items: center;
+  box-shadow: 0 8px 24px rgba(0,200,83,0.4);
+  cursor: pointer;
+}
+.filters-toggle-fab:hover { transform: scale(1.05); }
+
+/* ---------------------------------------------------------
+   RESPONSIVO
+--------------------------------------------------------- */
+@media (max-width: 900px) {
+  .cat-content__grid { grid-template-columns: 1fr; }
+
+  .cat-filters {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: min(340px, 90vw);
+    max-height: 100vh;
+    border-radius: 0;
+    border-right: 1px solid var(--border);
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    z-index: var(--z-drawer);
+    transform: translateX(-100%);
+    transition: transform 300ms cubic-bezier(.4,0,.2,1);
+  }
+  .cat-filters.is-open { transform: translateX(0); }
+  .cat-filters__close { display: inline-flex; }
+
+  .filters-toggle-fab { display: inline-flex; }
+
+  .filters-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: calc(var(--z-drawer) - 1);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--t-base);
+  }
+  .filters-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .cat-banner { min-height: 260px; }
+}

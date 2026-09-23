@@ -414,14 +414,19 @@
   overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
+  position: relative;
 }
-.about__media-placeholder {
-  display: grid;
-  place-items: center;
+
+.about__media img {
+  width: 100%;
   height: 100%;
-  color: var(--text-dim);
-  letter-spacing: 0.3em;
-  font-size: 0.85rem;
+  object-fit: cover;
+  display: block;
+  transition: transform 600ms ease;
+}
+
+.about__media:hover img {
+  transform: scale(1.04);
 }
 .about__content {
   display: flex;
@@ -614,3 +619,27 @@
   color: var(--text-muted);
 }
 .empty__icon { font-size: 3rem; margin-bottom: var(--space-md); }
+
+/* Tags de tamanho no card */
+.product-card__sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 4px 0;
+}
+.size-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.product-card__prices {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
